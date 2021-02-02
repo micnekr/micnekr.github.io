@@ -1,4 +1,3 @@
-//                                variables
 let txt;
 let afinn = {};
 let textbox;

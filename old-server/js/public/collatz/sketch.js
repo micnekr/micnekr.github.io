@@ -1,4 +1,3 @@
-//                                variables
 let canvas;
 let max = 100000;
 let current = 1;
