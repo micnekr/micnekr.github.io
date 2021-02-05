@@ -14,6 +14,7 @@
                   src="~static/img/logo.png"
                   alt="Logo"
                   class="is-rounded"
+                  height="0"
                 />
               </a>
             </b-navbar-item>
