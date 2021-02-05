@@ -7,17 +7,18 @@
     >
       <div class="navbar-brand">
         <b-navbar id="mainNavbar" type="is-primary">
-          <template #start>
+          <template #brand>
             <b-navbar-item>
               <a href="https://github.com/micnekr" class="image">
                 <img
                   src="~static/img/logo.png"
                   alt="Logo"
-                  height="28"
                   class="is-rounded"
                 />
               </a>
             </b-navbar-item>
+          </template>
+          <template #start>
             <b-navbar-item
               v-for="(item, index) in items"
               :key="index"
