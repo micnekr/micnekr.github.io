@@ -8,15 +8,27 @@
       <div class="navbar-brand">
         <b-navbar id="mainNavbar" type="is-primary">
           <template #brand>
-            <b-navbar-item>
+            <!-- <b-navbar-item>
               <a href="https://github.com/micnekr" class="image">
                 <img
-                  src="~static/img/logo.png"
+                  src="~assets/logo.png"
                   alt="Logo"
                   class="is-rounded"
-                  height="0"
                 />
+                <p type="is-danger" class="has-text-weight-semibold">MN</p>
               </a>
+            </b-navbar-item> -->
+            <b-navbar-item
+              tag="router-link"
+              :to="{path: '/'}"
+              class="image"
+            >
+              <img
+                src="~assets/logo.png"
+                alt="My Github profile"
+                class="is-rounded"
+                @click.stop.prevent="redirect('https://github.com/micnekr')"
+              >
             </b-navbar-item>
           </template>
           <template #start>
@@ -64,7 +76,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       items: [
         {
@@ -82,6 +94,11 @@ export default {
       ],
     };
   },
+  methods: {
+    redirect(link){
+      window.location.href = link;
+    }
+  },
 };
 </script>
 
@@ -89,4 +106,9 @@ export default {
 #mainNavbar {
   height: 4rem;
 }
+/*
+div.brand-text{
+  color: #abea7c;
+  font-size: 16px;
+} */
 </style>

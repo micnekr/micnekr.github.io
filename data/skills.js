@@ -68,6 +68,7 @@ export const skills = {
       title: "Python",
       desc: "An interpreted programming language often used for machine learning or quickly prototyping projects",
       img: "/img/python.png",
+      link: "https://www.python.org/",
       progressLevels: [
         {
           name: "Experience",

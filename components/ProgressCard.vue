@@ -8,19 +8,20 @@
               {{ progress.title }}
             </p>
           </header>
-          <div class="card-image">
-            <figure class="image">
-              <img
-                :src="progress.img"
-                alt="Progress image or icon"
-              >
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              {{ progress.desc }}
-            </div>
-          </div>
+          <section class="card-main-body">
+            <a :class="progress.link? '': 'nostyle'" :href="progress.link" @click.prevent="redirect(progress.link)">
+              <div class="card-image">
+                <figure class="image">
+                  <img :src="progress.img" alt="Progress image or icon">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                  {{ progress.desc }}
+                </div>
+              </div>
+            </a>
+          </section>
         </div>
       </section>
       <section
@@ -45,7 +46,7 @@
                   :show-value="progressLevel.tag !== undefined"
                   format="percent"
                 >
-                {{ progressLevel.tag }}
+                  {{ progressLevel.tag }}
                 </b-progress>
                 <div v-else-if="progressLevel.type === 'data'">
                   {{ progressLevel.level }}
@@ -61,12 +62,23 @@
 
 <script>
 export default {
-  props: ["progress", ],
-}
+  props: ["progress"],
+  methods: {
+    redirect (link) {
+      if (link) { window.location.href = link; }
+    },
+  },
+};
 </script>
 
 <style scoped>
-.card-image{
+.card-image {
   margin: 10px;
+}
+
+a.nostyle {
+    text-decoration: none !important;
+    cursor: inherit;
+    color: inherit;
 }
 </style>

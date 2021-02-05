@@ -4,6 +4,8 @@
 // Set your colors
 $light-blue:  #C1D5F4;
 $light-blue-invert: findColorInvert($light-blue);
+$yellow-green:  #ABEA7C;
+$yellow-green-invert: findColorInvert($yellow-green);
 
 $primary: $blue;
 $primary-light: findLightColor($primary);
@@ -79,6 +81,10 @@ $addColors: (
         $light-blue,
         $light-blue-invert,
     ),
+    "yellow-green": (
+        $yellow-green, 
+        $yellow-green-invert,
+    )
 );
 
 $colors: map-merge($colors, $addColors);
