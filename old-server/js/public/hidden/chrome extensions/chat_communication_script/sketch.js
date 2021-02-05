@@ -1,1 +1,0 @@
-//alert("Hello, Chrome extension is active!");
