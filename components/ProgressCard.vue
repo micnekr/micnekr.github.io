@@ -9,7 +9,7 @@
             </p>
           </header>
           <section class="card-main-body">
-            <a :class="progress.link? '': 'nostyle'" :href="progress.link" @click.prevent="redirect(progress.link)">
+            <a :class="progress.link? '': 'nostyle'" @click.prevent="redirect(progress.link)">
               <div class="card-image">
                 <figure class="image">
                   <img :src="progress.img" alt="Progress image or icon">
@@ -65,7 +65,7 @@ export default {
   props: ["progress"],
   methods: {
     redirect (link) {
-      if (link) { window.location.href = link; }
+      if (link) { this.$store.dispatch(link); }
     },
   },
 };

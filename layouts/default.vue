@@ -8,16 +8,6 @@
       <div class="navbar-brand">
         <b-navbar id="mainNavbar" type="is-primary">
           <template #brand>
-            <!-- <b-navbar-item>
-              <a href="https://github.com/micnekr" class="image">
-                <img
-                  src="~assets/logo.png"
-                  alt="Logo"
-                  class="is-rounded"
-                />
-                <p type="is-danger" class="has-text-weight-semibold">MN</p>
-              </a>
-            </b-navbar-item> -->
             <b-navbar-item
               tag="router-link"
               :to="{path: '/'}"

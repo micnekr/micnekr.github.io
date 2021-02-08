@@ -8,6 +8,10 @@ export default {
     htmlAttrs: {
       lang: "en",
     },
+    script: [
+      { hid: "p5", src: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js", defer: true },
+      { hid: "p5", src: "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js ", defer: true },
+    ],
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -43,6 +47,5 @@ export default {
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
+  build: {},
 };
