@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/jsProjects/maze", {data:[{}],fetch:[],mutations:void 0});
