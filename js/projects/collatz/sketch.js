@@ -1,5 +1,4 @@
-if (window.sketch !== undefined) { delete window.sketch; }
-window.sketch = new p5(function (p) {
+module.exports = function (p) {
   let canvas;
   const max = 100000;
   let current = 1;
@@ -11,7 +10,7 @@ window.sketch = new p5(function (p) {
     const smallestDimension = p.min(p.windowWidth - 100, p.windowHeight - 100);
     canvas = p.createCanvas(smallestDimension + 1, smallestDimension + 1);
     canvas.parent("canvasContainer");
-  }
+  };
 
   p.draw = function () {
     for (let i = 0; i < speed; i++) {
@@ -25,9 +24,9 @@ window.sketch = new p5(function (p) {
       p.point(p.map(current, 0, max, 0, p.width), p.map(iterations, 0, 400, p.height, 0));
       current++;
     }
-  }
+  };
 
-  function addNumber(num, previous) {
+  function addNumber (num, previous) {
     previous = previous || {};
     if (previous[num]) {
       return previous[num];
@@ -45,5 +44,4 @@ window.sketch = new p5(function (p) {
     previous[num] = iterations;
     return iterations;
   }
-
-})
+};

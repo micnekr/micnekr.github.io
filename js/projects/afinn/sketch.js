@@ -1,5 +1,4 @@
-if (window.sketch !== undefined) { delete window.sketch; }
-window.sketch = new p5(function (p) {
+module.exports = function (p) {
   let afinn = {};
   let textbox;
   let output;
@@ -36,4 +35,4 @@ window.sketch = new p5(function (p) {
     const comparative = score / words.length;
     return [score, comparative];
   }
-});
+};
