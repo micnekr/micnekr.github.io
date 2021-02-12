@@ -8,7 +8,7 @@
     </div>
     <!-- Canvas -->
     <div id="canvasContainer" />
-    <component :is="projectData.htmlComponent" v-if="projectData.htmlComponent" />
+    <component :is="projectData.htmlComponent" v-if="projectData.htmlComponent" ref="additionalSketchComponent" />
   </section>
 </template>
 
@@ -25,10 +25,15 @@ export default {
       projectData: this.getProjectData(),
     };
   },
-  mounted (params) {
+  mounted () {
     const sketchName = window.$nuxt.$route.params.projectName.toLowerCase();
     console.log("Requiring sketch ", sketchName);
-    const sketch = require(`~/static/js/projects/${sketchName}/sketch.js`);
+
+    window.additionalSketchComponent = this.$refs.additionalSketchComponent; // make the html component accessible
+
+    const sketchFunction = require(`~/static/js/projects/${sketchName}/sketch.js`);
+    if (window.sketch !== undefined) { delete window.sketch; }
+    window.sketch = new p5(sketchFunction); // make it global
     // const synth = new Tone.Synth().toMaster();
     // synth.triggerAttackRelease("C4", "8n");
   },
@@ -51,11 +56,5 @@ export default {
 
 #afterCanvas{
   margin-top: 10px;
-}
-</style>
-
-<style>
-.p5Canvas{
-  outline: 1px solid black;
 }
 </style>

@@ -1,23 +1,11 @@
-if (window.sketch !== undefined) { delete window.sketch; }
-window.sketch = new p5(function (p) {
-  let nuxtLoaded = false;
-
-  function waitForNuxt () {
-    if (window.$nuxt !== undefined) {
-      nuxtLoaded = true;
-    }
-    else {
-      setTimeout(waitForNuxt, 250);
-    }
-  };
-
-  waitForNuxt();
-
+module.exports = function (p) {
   // number of rows and columns
   const cols = 10;
   const rows = 10;
   const mazeGenSpeed = 20;
   const mazeSolveSpeed = 12;
+
+  const additionalSketchComponent = window.additionalSketchComponent;
 
   // canvas variable
   let canvas;
@@ -35,17 +23,23 @@ window.sketch = new p5(function (p) {
   let diagonal = true;
   let onlyPath = false; // show only path
   let pathAsLine = true;
-  let wallsAsLine = false;
+  let wallsAsLine = true;
   let randomGeneration = true;
   let repeatSearch = true;
-
-  // setInterval(() => nuxtLoaded ? console.log($nuxt) : "", 1000);
 
   const wallProbability = 0.2;
 
   const resetCooldown = 3000;
 
   function reset() {
+    // check the settings
+    wallsAsLine = additionalSketchComponent.useLineWalls;
+    randomGeneration = !additionalSketchComponent.useMazeGenerator;
+
+    console.log(wallsAsLine, randomGeneration);
+
+    if (!wallsAsLine) {randomGeneration = true;}
+
     // setup the grid
     grid = gridSetup(cols, rows, w, h, wallsAsLine, randomGeneration);
     // set the start and the end of route
@@ -594,4 +588,4 @@ window.sketch = new p5(function (p) {
     }
     return grid;
   }
-});
+};
