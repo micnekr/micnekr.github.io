@@ -10,14 +10,13 @@
           <template #brand>
             <b-navbar-item
               tag="router-link"
-              :to="{path: '/'}"
+              :to="{path: '/profile'}"
               class="image"
             >
               <img
                 src="~assets/logo.png"
-                alt="My Github profile"
+                alt="Github"
                 class="is-rounded"
-                @click.stop.prevent="redirect('https://github.com/micnekr')"
               >
             </b-navbar-item>
           </template>
@@ -30,18 +29,8 @@
             >
               {{ item.title }}
             </b-navbar-item>
-            <!-- <b-navbar-item tag="nuxt-link" to="/"> Home </b-navbar-item>
-            <b-navbar-item tag="nuxt-link" to="/projects">
-              Projects
-            </b-navbar-item> -->
           </template>
         </b-navbar>
-
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
       </div>
     </nav>
 
@@ -74,6 +63,10 @@ export default {
           to: "/",
         },
         {
+          title: "Profile",
+          to: "/profile",
+        },
+        {
           title: "Projects",
           to: "/projects",
         },
@@ -85,9 +78,9 @@ export default {
     };
   },
   methods: {
-    redirect(link){
+    redirect (link) {
       window.location.href = link;
-    }
+    },
   },
 };
 </script>
