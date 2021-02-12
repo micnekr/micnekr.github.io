@@ -8,24 +8,28 @@
     </div>
     <!-- Canvas -->
     <div id="canvasContainer" />
-    <div id="afterCanvas" class="centered" />
+    <component :is="projectData.htmlComponent" v-if="projectData.htmlComponent" />
   </section>
 </template>
 
 <script>
+import MazeSettings from "~/components/p5js/MazeSettings.vue";
+import SentimentAnalysisTextbox from "~/components/p5js/SentimentAnalysisTextbox.vue";
 import { projects } from "~/data/jsProjects.js";
 
 export default {
+  name: "sketch",
+  components: { MazeSettings, SentimentAnalysisTextbox },
   data () {
     return {
-      libraries: projects.projects.libraries,
+      projectData: this.getProjectData(),
     };
   },
   methods: {
-    getLibraries () {
+    getProjectData () {
       const hits = projects.projects.filter(obj => obj.name.toLowerCase() === this.$route.params.projectName.toLowerCase());
       if (hits.length === 0) { return; }
-      return hits[0].libraries;
+      return hits[0];
     },
   },
 };
@@ -34,6 +38,8 @@ export default {
 <style scoped>
 #canvasContainer{
   margin:auto;
+  margin-top: 10px;
+  text-align:center;
 }
 
 #afterCanvas{
@@ -42,16 +48,7 @@ export default {
 </style>
 
 <style>
-
-.centered{
-  margin: auto;
-}
-
-textarea.centered{
-  display: block;
-}
-
-.text-center{
-  text-align: center;
+.p5Canvas{
+  outline: 1px solid black;
 }
 </style>

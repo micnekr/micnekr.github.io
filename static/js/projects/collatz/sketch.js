@@ -6,10 +6,6 @@ window.sketch = new p5(function (p) {
   const speed = 200;
   let nums = {};
 
-  this.array = [];
-  for (let i = 0; i < 10000; i++) { this.array.push(this.array) };
-  console.log(this.array);
-
   p.setup = function () {
     // smallest of windowWidth and windowHeight
     const smallestDimension = p.min(p.windowWidth - 100, p.windowHeight - 100);
@@ -25,7 +21,7 @@ window.sketch = new p5(function (p) {
         p.background(255);
         return;
       }
-      iterations = addNumber(current, nums);
+      const iterations = addNumber(current, nums);
       p.point(p.map(current, 0, max, 0, p.width), p.map(iterations, 0, 400, p.height, 0));
       current++;
     }

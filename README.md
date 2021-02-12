@@ -18,3 +18,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Project details
+**NOTE: the p5.js sketches are very old, so the code quality is not great** 
