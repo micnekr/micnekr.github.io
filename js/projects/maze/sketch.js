@@ -1,5 +1,18 @@
 if (window.sketch !== undefined) { delete window.sketch; }
 window.sketch = new p5(function (p) {
+  let nuxtLoaded = false;
+
+  function waitForNuxt () {
+    if (window.$nuxt !== undefined) {
+      nuxtLoaded = true;
+    }
+    else {
+      setTimeout(waitForNuxt, 250);
+    }
+  };
+
+  waitForNuxt();
+
   // number of rows and columns
   const cols = 10;
   const rows = 10;
@@ -19,18 +32,20 @@ window.sketch = new p5(function (p) {
   let pathfinding;
   let backtracker;
   // settings
-  const diagonal = true;
-  const onlyPath = false; // show only path
-  const pathAsLine = true;
-  const wallsAsLine = false;
-  const randomGeneration = true;
-  const repeatSearch = true;
+  let diagonal = true;
+  let onlyPath = false; // show only path
+  let pathAsLine = true;
+  let wallsAsLine = false;
+  let randomGeneration = true;
+  let repeatSearch = true;
+
+  // setInterval(() => nuxtLoaded ? console.log($nuxt) : "", 1000);
 
   const wallProbability = 0.2;
 
   const resetCooldown = 3000;
 
-  function reset () {
+  function reset() {
     // setup the grid
     grid = gridSetup(cols, rows, w, h, wallsAsLine, randomGeneration);
     // set the start and the end of route
@@ -86,7 +101,7 @@ window.sketch = new p5(function (p) {
     drawGrid();
   };
 
-  function drawGrid () {
+  function drawGrid() {
     // loops through all cells and draw them
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
@@ -95,7 +110,7 @@ window.sketch = new p5(function (p) {
     }
   }
 
-  function removeFromArray (arr, elt) {
+  function removeFromArray(arr, elt) {
     // loop through all population of array from the end
     for (let i = arr.length - 1; i >= 0; i--) {
       // if is the right element, break
@@ -106,22 +121,22 @@ window.sketch = new p5(function (p) {
     }
   }
 
-  function moveBetweenArrays (arr1, arr2, elt) {
+  function moveBetweenArrays(arr1, arr2, elt) {
     removeFromArray(arr1, elt);
     arr2.push(elt);
   }
 
-  function noSolution () {
+  function noSolution() {
     messageP.html("No solution");
     if (!repeatSearch) { p.noLoop(); }
   }
 
-  function solution () {
+  function solution() {
     messageP.html("Finished");
     if (!repeatSearch) { p.noLoop(); }
   }
 
-  function Spot (x, y, w, h, grid, wallsAsLine, randomGeneration) {
+  function Spot(x, y, w, h, grid, wallsAsLine, randomGeneration) {
     // x and y
     this.x = x;
     this.y = y;
@@ -326,7 +341,7 @@ window.sketch = new p5(function (p) {
     };// returns if there is a corner
   }
 
-  function AStar (w, h) {
+  function AStar(w, h) {
     // set constant variables
     this.openSet = [];
     this.closedSet = [];
@@ -498,7 +513,7 @@ window.sketch = new p5(function (p) {
     };
   }
 
-  function MazeCreator () {
+  function MazeCreator() {
     this.ready = true;
     this.stack = [];
     this.visitedCells = 0;
@@ -564,7 +579,7 @@ window.sketch = new p5(function (p) {
     };
   }
 
-  function gridSetup (cols, rows, w, h, wallsAsLine, randomGeneration) {
+  function gridSetup(cols, rows, w, h, wallsAsLine, randomGeneration) {
     // making a 1d array
     const grid = new Array(cols);
     // making a 2d array
