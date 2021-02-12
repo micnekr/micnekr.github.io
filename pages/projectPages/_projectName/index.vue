@@ -1,10 +1,10 @@
 <template>
   <section>
     <div id="script-container">
-      <script
+      <!-- <script
         :src="'/js/projects/' + this.$route.params.projectName + '/sketch.js'"
         defer
-      />
+      /> -->
     </div>
     <!-- Canvas -->
     <div id="canvasContainer" />
@@ -18,12 +18,19 @@ import SentimentAnalysisTextbox from "~/components/p5js/SentimentAnalysisTextbox
 import { projects } from "~/data/jsProjects.js";
 
 export default {
-  name: "sketch",
+  name: "Sketch",
   components: { MazeSettings, SentimentAnalysisTextbox },
   data () {
     return {
       projectData: this.getProjectData(),
     };
+  },
+  mounted (params) {
+    const sketchName = window.$nuxt.$route.params.projectName.toLowerCase();
+    console.log("Requiring sketch ", sketchName);
+    const sketch = require(`~/static/js/projects/${sketchName}/sketch.js`);
+    // const synth = new Tone.Synth().toMaster();
+    // synth.triggerAttackRelease("C4", "8n");
   },
   methods: {
     getProjectData () {
