@@ -51,7 +51,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import CustomHeader from "../CustomHeader.vue";
 export default Vue.extend({
