@@ -1,7 +1,8 @@
 module.exports = function (p) {
   // number of rows and columns
-  const cols = 10;
-  const rows = 10;
+  let cols = 10;
+  let rows = 10;
+  let smallestDimension;
   const mazeGenSpeed = 20;
   const mazeSolveSpeed = 12;
 
@@ -23,22 +24,31 @@ module.exports = function (p) {
   let diagonal = true;
   let onlyPath = false; // show only path
   let pathAsLine = true;
-  let wallsAsLine = true;
-  let randomGeneration = true;
-  let repeatSearch = true;
+  let wallsAsLine;
+  let randomGeneration;
+  const repeatSearch = true;
 
-  const wallProbability = 0.2;
+  let wallProbability = 0.2;
 
   const resetCooldown = 3000;
 
-  function reset() {
+  function reset () {
     // check the settings
     wallsAsLine = additionalSketchComponent.useLineWalls;
     randomGeneration = !additionalSketchComponent.useMazeGenerator;
 
+    wallProbability = additionalSketchComponent.wallProbability;
+
+    cols = additionalSketchComponent.dimX;
+    rows = additionalSketchComponent.dimY;
+
     console.log(wallsAsLine, randomGeneration);
 
     if (!wallsAsLine) {randomGeneration = true;}
+
+    // setup of height of cells
+    w = smallestDimension / cols;
+    h = smallestDimension / rows;
 
     // setup the grid
     grid = gridSetup(cols, rows, w, h, wallsAsLine, randomGeneration);
@@ -46,25 +56,26 @@ module.exports = function (p) {
     start = grid[0][0];
     end = grid[cols - 1][rows - 1];
     if (!randomGeneration) { backtracker.setTask(grid, start); }
-    pathfinding.SetTask(start, end, diagonal, solution, noSolution);
+    pathfinding.SetTask(start, end, diagonal, solution, noSolution, w, h);
   }
+
+  document.addEventListener("resetEvent", function (e) {
+    reset();
+  });
 
   p.setup = function () {
     // smallest of windowWidth and windowHeight
-    const smallestDimension = p.min(p.windowWidth - 100, p.windowHeight - 100);
+    smallestDimension = p.min(p.windowWidth - 100, p.windowHeight - 100) * 0.7;
     canvas = p.createCanvas(smallestDimension + 1, smallestDimension + 1);
     canvas.parent("canvasContainer");
     // setup text display
 
     messageP = p.select("#message");
     messageP.html("Calculating...");
-    // setup of height of cells
-    w = smallestDimension / cols;
-    h = smallestDimension / rows;
     // make maze algorithm
     backtracker = new MazeCreator();
     // make A* algorithm
-    pathfinding = new AStar(w, h);
+    pathfinding = new AStar();
     reset();
   };
 
@@ -335,16 +346,16 @@ module.exports = function (p) {
     };// returns if there is a corner
   }
 
-  function AStar(w, h) {
+  function AStar() {
     // set constant variables
     this.openSet = [];
     this.closedSet = [];
     this.path = [];
-    this.w = w;
-    this.h = h;
     // stop task
     this.searching = false;
-    this.SetTask = function (start, end, allowDiagonals, sol, noSol) {
+    this.SetTask = function (start, end, allowDiagonals, sol, noSol, w, h) {
+      this.w = w;
+      this.h = h;
       // set start and end
       this.start = start;
       this.end = end;

@@ -16,10 +16,6 @@
 import Sketch from "~/components/p5js/Sketch.vue";
 import { projects } from "~/data/jsProjects.js";
 
-for (const project of projects.projects) {
-  project.img = "/img/jsProjectsGifs/" + project.img;
-}
-
 export default {
   components: { Sketch },
 

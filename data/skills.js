@@ -3,7 +3,7 @@ export const skills = {
     {
       title: "Gimp",
       desc: "Gimp is a free image editing program",
-      img: "/img/gimp.png",
+      img: "gimp.png",
       link: "https://www.gimp.org/",
       progressLevels: [
         {
@@ -17,7 +17,7 @@ export const skills = {
     {
       title: "Unity",
       desc: "Unity is a powerful editor often used to make 2D or 3D games. This includes my knowledge of C# for Unity",
-      img: "/img/unity.png",
+      img: "unity.png",
       link: "https://unity.com/",
       progressLevels: [
         {
@@ -30,7 +30,7 @@ export const skills = {
     {
       title: "Blender",
       desc: "Blender is a powerful 3D modelling software",
-      img: "/img/blender.png",
+      img: "blender.png",
       link: "https://www.blender.org/",
       progressLevels: [
         {
@@ -43,7 +43,7 @@ export const skills = {
     {
       title: "Git",
       desc: "Git is a powerful version control software",
-      img: "/img/git.png",
+      img: "git.png",
       link: "https://git-scm.com/",
       progressLevels: [
         {
@@ -56,7 +56,7 @@ export const skills = {
     {
       title: "Ubuntu shell",
       desc: "Ubuntu is one of the most popular flavours of Linux",
-      img: "/img/ubuntu.jpg",
+      img: "ubuntu.jpg",
       link: "https://ubuntu.com/",
       progressLevels: [
         {
@@ -72,7 +72,7 @@ export const skills = {
     {
       title: "Python",
       desc: "An interpreted programming language often used for machine learning or quickly prototyping projects",
-      img: "/img/python.png",
+      img: "python.png",
       link: "https://www.python.org/",
       progressLevels: [
         {
@@ -85,7 +85,7 @@ export const skills = {
     {
       title: "Javascript",
       desc: "A client-side and server-side interpreted programming language often used for full-stack apps",
-      img: "/img/js.png",
+      img: "js.png",
       progressLevels: [
         {
           name: "Experience",
@@ -97,7 +97,7 @@ export const skills = {
     {
       title: "Java",
       desc: "A compiled programming language often used for fast computations",
-      img: "/img/java.png",
+      img: "java.png",
       link: "https://www.java.com/en/",
       progressLevels: [
         {
@@ -110,7 +110,7 @@ export const skills = {
     {
       title: "C++",
       desc: "A compiled programming language often used for fast computations",
-      img: "/img/cpp.png",
+      img: "cpp.png",
       link: "https://gcc.gnu.org/install/binaries.html",
       progressLevels: [
         {
@@ -123,7 +123,7 @@ export const skills = {
     {
       title: "SQL (mySQL + some postgreSQL)",
       desc: "A query language for CRUD operations on a database",
-      img: "/img/mysql.jpg",
+      img: "mysql.jpg",
       link: "https://www.mysql.com/",
       progressLevels: [
         {
@@ -138,7 +138,7 @@ export const skills = {
     {
       title: "Node.js",
       desc: "Node.js is a server-side javascript runtime",
-      img: "/img/nodejs.png",
+      img: "nodejs.png",
       link: "https://nodejs.org/en/",
       progressLevels: [
         {
@@ -151,7 +151,7 @@ export const skills = {
     {
       title: "Express.js",
       desc: "Express.js is a node.js library/framework for writing asynchronous http and https servers",
-      img: "/img/expressjs.png",
+      img: "expressjs.png",
       link: "https://expressjs.com/",
       progressLevels: [
         {
@@ -164,7 +164,7 @@ export const skills = {
     {
       title: "Vue.js",
       desc: "Vue is a client-side framework for responsive single-page websites",
-      img: "/img/vuejs.png",
+      img: "vuejs.png",
       link: "https://vuejs.org/",
       progressLevels: [
         {
@@ -178,7 +178,7 @@ export const skills = {
     {
       title: "Nuxt.js",
       desc: "Nuxt is a framework built around Vue that allows for better SEO by pre-processing some pages. This is what this website is written in!",
-      img: "/img/nuxtjs.png",
+      img: "nuxtjs.png",
       link: "https://nuxtjs.org/",
       progressLevels: [
         {
@@ -192,7 +192,7 @@ export const skills = {
     {
       title: "Buefy + Bulma",
       desc: "Buefy is a powerful css framework based on Bulma. This is what this website uses!",
-      img: "/img/buefy.png",
+      img: "buefy.png",
       link: "https://buefy.org/",
       progressLevels: [
         {
@@ -206,7 +206,7 @@ export const skills = {
     {
       title: "Processing",
       desc: `Processing can be argued to be a language or a framework for Java. It specializes in running graphical applications with a "canvas"`,
-      img: "/img/Processing.png",
+      img: "Processing.png",
       link: "https://processing.org/",
       progressLevels: [
         {
@@ -219,7 +219,7 @@ export const skills = {
     {
       title: "p5.js",
       desc: `p5.js is a client-side framework/library for running "sketches", or js code using a canvas. You can see some examples under "Web Projects"`,
-      img: "/img/p5js.png",
+      img: "p5js.png",
       link: "https://p5js.org/",
       progressLevels: [
         {

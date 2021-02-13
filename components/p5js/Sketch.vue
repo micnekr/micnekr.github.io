@@ -14,7 +14,7 @@
         <div class="card-sketch">
           <div class="card-image">
             <figure class="image">
-              <img :src="sketchData.img" alt="Sketch demonstration">
+              <img :src="require(`~/assets/img/jsProjectsGifs/${sketchData.img}`)" alt="Sketch demonstration">
             </figure>
           </div>
         </div>

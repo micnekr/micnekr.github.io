@@ -12,7 +12,7 @@
             <a :class="progress.link? '': 'nostyle'" @click.prevent="redirect(progress.link)">
               <div class="card-image">
                 <figure class="image">
-                  <img :src="progress.img" alt="Progress image or icon">
+                  <img :src="require(`~/assets/img/${progress.img}`)" alt="Progress image or icon">
                 </figure>
               </div>
               <div class="card-content">

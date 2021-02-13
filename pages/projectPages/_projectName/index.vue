@@ -31,7 +31,7 @@ export default {
 
     window.additionalSketchComponent = this.$refs.additionalSketchComponent; // make the html component accessible
 
-    const sketchFunction = require(`~/static/js/projects/${sketchName}/sketch.js`);
+    const sketchFunction = require(`~/assets/js/projects/${sketchName}/sketch.js`);
     if (window.sketch !== undefined) { delete window.sketch; }
     window.sketch = new p5(sketchFunction); // make it global
     // const synth = new Tone.Synth().toMaster();

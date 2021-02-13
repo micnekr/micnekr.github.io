@@ -13,11 +13,11 @@
               :to="{path: '/profile'}"
               class="image"
             >
-              <img
+              <!-- <img
                 src="~assets/logo.png"
                 alt="Github"
                 class="is-rounded"
-              >
+              > -->
             </b-navbar-item>
           </template>
           <template #start>

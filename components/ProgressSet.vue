@@ -1,10 +1,6 @@
 <template>
   <div class="progress-set tile is-ancestor is-vertical">
-    <section class="tile container section is-parent is-10">
-      <div class="tile notification is-primary-light is-child">
-        <h3 class="is-light-blue-invert is-centered title"><slot></slot></h3>
-      </div>
-    </section>
+    <custom-header><slot></slot></custom-header>
     <section class="columns is-multiline is-centered is-flex-wrap-wrap">
       <progress-card
         v-for="(progress, index) in progresses"
@@ -24,6 +20,7 @@
 
 <script>
 import ProgressCard from "~/components/ProgressCard.vue";
+import CustomHeader from "~/components/CustomHeader.vue";
 
 export default {
   components: { ProgressCard },
