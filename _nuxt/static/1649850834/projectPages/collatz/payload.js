@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/projectPages/collatz", {data:[{}],fetch:{},mutations:void 0});
