@@ -12,10 +12,7 @@
             <a :class="progress.link ? '' : 'nostyle'" :href="progress.link">
               <div class="card-image">
                 <figure class="image">
-                  <img
-                    :src="require(`~/static/img/${progress.img}`)"
-                    alt="Progress image or icon"
-                  />
+                  <img :src="`/img/${progress.img}`" alt="Logo or an icon" />
                 </figure>
               </div>
               <div class="card-content">

@@ -15,7 +15,7 @@
           <div class="card-image">
             <figure class="image">
               <img
-                :src="require(`~/static/img/jsProjectsGifs/${sketchData.img}`)"
+                :src="`/img/jsProjectsGifs/${sketchData.img}`"
                 alt="Sketch demonstration"
               />
             </figure>
