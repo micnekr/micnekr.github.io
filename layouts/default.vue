@@ -10,14 +10,9 @@
           <template #brand>
             <b-navbar-item
               tag="router-link"
-              :to="{path: '/profile'}"
+              :to="{ path: '/profile' }"
               class="image"
             >
-              <!-- <img
-                src="~assets/logo.png"
-                alt="Github"
-                class="is-rounded"
-              > -->
             </b-navbar-item>
           </template>
           <template #start>
@@ -55,7 +50,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       items: [
         {
@@ -78,7 +73,7 @@ export default {
     };
   },
   methods: {
-    redirect (link) {
+    redirect(link) {
       window.location.href = link;
     },
   },

@@ -9,10 +9,13 @@
             </p>
           </header>
           <section class="card-main-body">
-            <a :class="progress.link? '': 'nostyle'" @click.prevent="redirect(progress.link)">
+            <a :class="progress.link ? '' : 'nostyle'" :href="progress.link">
               <div class="card-image">
                 <figure class="image">
-                  <img :src="require(`~/assets/img/${progress.img}`)" alt="Progress image or icon">
+                  <img
+                    :src="require(`~/static/img/${progress.img}`)"
+                    alt="Progress image or icon"
+                  />
                 </figure>
               </div>
               <div class="card-content">
@@ -63,11 +66,6 @@
 <script>
 export default {
   props: ["progress"],
-  methods: {
-    redirect (link) {
-      if (link) { this.$store.dispatch(link); }
-    },
-  },
 };
 </script>
 
@@ -77,8 +75,8 @@ export default {
 }
 
 a.nostyle {
-    text-decoration: none !important;
-    cursor: inherit;
-    color: inherit;
+  text-decoration: none !important;
+  cursor: inherit;
+  color: inherit;
 }
 </style>

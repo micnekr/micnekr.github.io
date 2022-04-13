@@ -16,7 +16,7 @@ export const projects = {
       img: "collatz.gif",
       sketchDisplay: {
         title: "Collatz conjecture visualisation",
-        desc: "Test",
+        desc: "A small sketch to create an interesting image for the collatz conjecture",
       },
     },
     {
@@ -25,7 +25,7 @@ export const projects = {
       img: "collatz.gif",
       sketchDisplay: {
         title: "A* maze solving algorithm and a backtracking maze algorithm",
-        desc: "Test",
+        desc: "An algorithm to create and solve a maze",
       },
       htmlComponent: "maze-settings",
     },
