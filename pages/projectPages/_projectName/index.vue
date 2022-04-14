@@ -15,18 +15,19 @@
 <script>
 import MazeSettings from "~/components/p5js/MazeSettings.vue";
 import SentimentAnalysisTextbox from "~/components/p5js/SentimentAnalysisTextbox.vue";
+import GrammarCustomIO from "~/components/p5js/GrammarCustomIO.vue";
 import { projects } from "~/data/jsProjects.js";
 
 export default {
   name: "Sketch",
-  components: { MazeSettings, SentimentAnalysisTextbox },
+  components: { MazeSettings, SentimentAnalysisTextbox, GrammarCustomIO },
   data () {
     return {
       projectData: this.getProjectData(),
     };
   },
   mounted () {
-    const sketchName = window.$nuxt.$route.params.projectName.toLowerCase();
+    const sketchName = window.$nuxt.$route.params.projectName;
     console.log("Requiring sketch ", sketchName);
 
     window.additionalSketchComponent = this.$refs.additionalSketchComponent; // make the html component accessible

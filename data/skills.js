@@ -190,6 +190,19 @@ export const skills = {
       ],
     },
     {
+      title: "JQuery",
+      desc: "JQuery is a library used for easy DOM manipulation with predictable results in all browsers.",
+      img: "jquery.png",
+      link: "https://jquery.com/",
+      progressLevels: [
+        {
+          name: "Experience",
+          type: "percent",
+          level: 60,
+        },
+      ],
+    },
+    {
       title: "Buefy + Bulma",
       desc: "Buefy is a powerful css framework based on Bulma. This is what this website uses!",
       img: "buefy.png",

@@ -1,8 +1,8 @@
 export const projects = {
   projects: [
     {
-      name: "AFINN",
-      libraries: ["p5.js", "p5.dom.js"],
+      name: "afinn",
+      libraries: ["p5.js"],
       img: "afinn.gif",
       sketchDisplay: {
         title: "AFINN sentiment analysis",
@@ -21,13 +21,42 @@ export const projects = {
     },
     {
       name: "maze",
-      libraries: ["p5.js", "p5.dom.js"],
+      libraries: ["p5.js"],
       img: "collatz.gif",
       sketchDisplay: {
-        title: "A* maze solving algorithm and a backtracking maze algorithm",
-        desc: "Test",
+        title: "Labyrinth building and solving",
+        desc: "A* maze solving algorithm and a backtracking maze algorithm",
       },
       htmlComponent: "maze-settings",
+    },
+    {
+      name: "grammarCustom",
+      libraries: ["p5.js"],
+      img: "collatz.gif",
+      sketchDisplay: {
+        title: "A context-free text generator",
+        desc: "A grammar library written by used to geneate random stories",
+      },
+      htmlComponent: "grammar-custom-i-o",
+    },
+    {
+      name: "games",
+      libraries: ["p5.js"],
+      img: "collatz.gif",
+      sketchDisplay: {
+        title: "Games",
+        desc: "TEST",
+      },
+      projects: {
+        name: "grammarCustom",
+        libraries: ["p5.js"],
+        img: "collatz.gif",
+        sketchDisplay: {
+          title: "A context-free text generator",
+          desc: "A grammar library written by used to geneate random stories",
+        },
+        htmlComponent: "grammar-custom-i-o",
+      },
     },
   ],
 };

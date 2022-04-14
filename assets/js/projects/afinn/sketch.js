@@ -4,7 +4,7 @@ module.exports = function (p) {
   let output;
 
   p.preload = function () {
-    afinn = p.loadJSON("/js/projects/afinn/AFINN.json");
+    afinn = require("~/assets/js/projects/afinn/AFINN.json");
   };
 
   p.setup = function () {

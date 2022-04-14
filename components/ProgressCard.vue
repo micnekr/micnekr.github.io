@@ -65,7 +65,7 @@ export default {
   props: ["progress"],
   methods: {
     redirect (link) {
-      if (link) { this.$store.dispatch(link); }
+      if (link) { window.location.href = link; }
     },
   },
 };
